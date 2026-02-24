@@ -1,0 +1,12 @@
+class Solution:
+    def luckyNumbers(self, matrix: List[List[int]]) -> List[int]:
+        m=len(matrix)
+        n=len(matrix[0])
+        a=[min(row) for row in matrix]
+        b=[max(matrix[i][j] for i in range(m)) for j in range(n)]
+        stack=[]
+        for i in range(m):
+            for j in range(n):
+                if matrix[i][j]==a[i] and matrix[i][j]==b[j]:
+                    stack.append(matrix[i][j])
+        return stack
